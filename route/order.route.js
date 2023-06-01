@@ -14,7 +14,8 @@ orderRoute.post('/orders', authentication, async (req, res) => {
         await newOrder.save()
         res.status(201).send({
             status: true,
-            msg: "Your Order has been Placed."
+            msg: "Your Order has been Placed.",
+            data: newOrder
         })
     } catch {
         res.status(404).send({
@@ -24,18 +25,36 @@ orderRoute.post('/orders', authentication, async (req, res) => {
     }
 })
 
-
 orderRoute.get('/orders/:id', authentication, async (req, res) => {
     try {
-        const id = await OrderModel.find({ _id: id });
+        const id = req.params.id
+        const data = await OrderModel.find({ _id: id });
         res.status(200).send({
             status: true,
-            msg: `Order Details with the ID : ${id}`
+            msg: `Order Details with the ID : ${id}`,
+            data: data
         })
     } catch {
         res.status(404).send({
             status: false,
             msg: 'Error in fetching the specific order Details.'
+        })
+    }
+})
+
+orderRoute.get('/order/:id', authentication, async (req, res) => {
+    try {
+        const id = req.params.id
+        const data = await OrderModel.find({ user: id });
+        res.status(200).send({
+            status: true,
+            msg: `All the Order Details`,
+            data: data
+        })
+    } catch {
+        res.status(404).send({
+            status: false,
+            msg: 'Error in fetching the order Details.'
         })
     }
 })
