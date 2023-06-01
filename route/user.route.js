@@ -62,8 +62,22 @@ userRoute.post('/login', async (req, res) => {
 })
 
 
-
-
+userRoute.patch('/user/:id/reset', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { password } = req.body;
+        await UserModel.findByIdAndUpdate({ _id: id }, password);
+        res.status(200).send({
+            status: true,
+            msg: 'Password has been updated'
+        })
+    } catch {
+        res.status(404).send({
+            status: false,
+            msg: 'Error while updating the password.'
+        })
+    }
+})
 
 
 
