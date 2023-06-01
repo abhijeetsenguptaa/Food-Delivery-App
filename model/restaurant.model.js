@@ -5,6 +5,8 @@ const menuSchema = mongoose.Schema({
     description: String,
     price: Number,
     image: String
+}, {
+    versionKey: false
 })
 
 
@@ -18,7 +20,11 @@ const restaurantSchema = mongoose.Schema({
         zip: String
     },
     menu: [menuSchema]
+}, {
+    versionKey: false
 })
 
 
-module.exports = { restaurantSchema };
+const RestaurantModel = mongoose.model('restaurants', restaurantSchema)
+
+module.exports = { RestaurantModel };

@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { connection } = require('./configs/connection');
+const { userRoute } = require('./route/user.route');
 
 
 
@@ -22,7 +23,7 @@ app.get('/', async (req, res) => {
     })
 })
 
-
+app.use('/api', userRoute);
 
 
 app.listen(PORT, async () => {

@@ -13,6 +13,8 @@ const userSchema = mongoose.Schema({
         country: String,
         zip: String
     }
+}, {
+    versionKey: false
 })
 
 const UserModel = mongoose.model('users', userSchema);
