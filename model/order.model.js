@@ -11,14 +11,16 @@ const itemSchema = mongoose.Schema({
 })
 
 const orderSchema = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: UserModel
-    },
-    restaurant: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: RestaurantModel
-    },
+    // user: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: UserModel
+    // },
+    // restaurant: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: RestaurantModel
+    // },
+    user: String,
+    restaurant: String,
     items: [itemSchema],
     totalPrice: Number,
     deliveryAddress: {
@@ -38,4 +40,7 @@ const orderSchema = mongoose.Schema({
 })
 
 
-module.exports = { orderSchema };
+
+const OrderModel = mongoose.model('orders',orderSchema);
+
+module.exports = { OrderModel };

@@ -4,6 +4,7 @@ const cors = require('cors');
 const { connection } = require('./configs/connection');
 const { userRoute } = require('./route/user.route');
 const { restaurantRouter } = require('./route/restaurant.route');
+const { orderRoute } = require('./route/order.route');
 
 
 
@@ -25,8 +26,8 @@ app.get('/', async (req, res) => {
 })
 
 app.use('/api', userRoute);
-app.use('/api',restaurantRouter);
-
+app.use('/api', restaurantRouter);
+app.use('/api', orderRoute);
 
 app.listen(PORT, async () => {
     try {

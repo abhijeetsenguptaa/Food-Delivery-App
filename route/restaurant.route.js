@@ -71,4 +71,21 @@ restaurantRouter.post('/restaurants/:id/menu', async (req, res) => {
         })
     }
 })
+
+restaurantRouter.delete('/restaurants/:id1/menu/:id2', async (req, res) => {
+    try {
+        const id1 = req.params.id1;
+        const id2 = req.params.id2;
+        await RestaurantModel.updateOne({ _id: id1 }, { $pull: { menu: { _id: id2 } } });
+        res.status(202).send({
+            status: true,
+            msg: `Menu with ID : ${id2} has been deleted.`
+        })
+    } catch {
+        res.status(404).send({
+            status: false,
+            msg: 'Error in deleting the specific data from the Menu.'
+        })
+    }
+})
 module.exports = { restaurantRouter };
