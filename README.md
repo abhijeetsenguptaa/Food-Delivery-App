@@ -83,7 +83,7 @@ To get started with the Food-Delivery-App API, follow the instructions below.
 
 ---
 
-7. **Deleting the items form the Menu of the Restaurants**
+8. **Deleting the items form the Menu of the Restaurants**
 
 - **Endpoint:** `DELETE` **/api//restaurants/:id/menu/:id**
 - **Description**: **This route will help in deleting the specific items from the menu of the specific restaurant.**
@@ -91,7 +91,7 @@ To get started with the Food-Delivery-App API, follow the instructions below.
 
 ---
 
-8. **Placing Orders**
+9. **Placing Orders**
 
 - **Endpoint:** `POST`**/api/orders**
 - **Description:** **This route is a protected route so the user has to login first and it will help to place order to the restaurants.**
@@ -99,7 +99,7 @@ To get started with the Food-Delivery-App API, follow the instructions below.
 
 ---
 
-9. **Checking the particular Order**
+10. **Checking the particular Order**
 
 - **Endpoint:** `GET` **/api/orders/:id**
 - **Description:** **This route is a protected route so the user has to login first and it will give the data of the particular order.**
@@ -107,7 +107,7 @@ To get started with the Food-Delivery-App API, follow the instructions below.
 
 ---
 
-10. **Updating the particular Order**
+11. **Updating the particular Order**
 
 - **Endpoint:** `PATCH` **/api/orders/:id**
 - **Description:** **This route is a protected route so the user has to login first and it will be used to update the particular order.**
